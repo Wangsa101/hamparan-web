@@ -30,10 +30,10 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        {/* Brand (lebih premium, logo & nama jelas) */}
-        <Link href="/" className="group flex items-center gap-4 transition">
-          <div className="relative h-14 w-14 overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm transition group-hover:shadow-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        {/* Brand */}
+        <Link href="/" className="flex items-center gap-3">
+          <div className="relative h-12 w-12 overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm">
             <Image
               src="/logo.png"
               alt="PT Hamparan Hijau Internusa"
@@ -43,14 +43,12 @@ export default function Navbar() {
             />
           </div>
 
-          {/* Separator ala corporate */}
-          <div className="hidden h-10 w-px bg-slate-200 md:block" />
-
+          {/* IMPORTANT: jangan disembunyiin di mobile */}
           <div className="leading-tight">
-            <div className="text-base font-semibold tracking-tight text-slate-900 transition group-hover:text-emerald-700">
+            <div className="text-[13px] font-semibold tracking-tight text-slate-900 sm:text-sm">
               PT Hamparan Hijau Internusa
             </div>
-            <div className="mt-0.5 text-sm font-medium text-slate-500">
+            <div className="text-[11px] font-medium text-slate-500">
               Integrated Agro Ecosystem
             </div>
           </div>
@@ -65,7 +63,7 @@ export default function Navbar() {
                 key={i.href}
                 href={i.href}
                 className={[
-                  "relative rounded-full px-3 py-2 text-sm transition",
+                  "relative rounded-full px-3.5 py-2 text-sm transition",
                   active
                     ? "text-emerald-700"
                     : "text-slate-600 hover:text-slate-900",
@@ -87,13 +85,13 @@ export default function Navbar() {
         <div className="hidden md:block">
           <Link
             href="/kontak"
-            className="rounded-full bg-emerald-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm shadow-emerald-900/10 transition hover:bg-emerald-800"
+            className="rounded-full bg-emerald-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-emerald-900/10 transition hover:bg-emerald-800"
           >
             Kemitraan
           </Link>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile */}
         <button
           className="md:hidden rounded-full border border-slate-200 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50"
           onClick={() => setOpen((v) => !v)}
@@ -129,15 +127,14 @@ export default function Navbar() {
             <Link
               href="/kontak"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-emerald-700 px-4 py-2 text-center text-sm font-medium text-white hover:bg-emerald-800"
+              className="mt-2 rounded-full bg-emerald-700 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-emerald-800"
             >
               Kemitraan
             </Link>
           </div>
 
           <div className="mt-3 text-xs text-slate-500">
-            Active:{" "}
-            <span className="font-medium text-slate-700">{activeHref}</span>
+            Active: <span className="font-medium text-slate-700">{activeHref}</span>
           </div>
         </div>
       )}
